@@ -14,6 +14,7 @@
 class User extends CActiveRecord
 {
 	public $salt;
+	public $password_repeat;
 
 	/**
 	 * Returns the static model of the specified AR class.
@@ -41,10 +42,13 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, email, join_date', 'required'),
-			array('status', 'numerical', 'integerOnly'=>true),
-			array('user_name, email', 'length', 'max'=>100),
+			array('username, password, email', 'required'),
+			array('username, email', 'length', 'max'=>100),
+			array('email', 'email','checkMX'=>true),
+			array('username, email', 'unique'),
 			array('password', 'length', 'max'=>255),
+			array('password', 'compare'),
+			array('password_repeat', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, username, password, email, status, join_date', 'safe', 'on'=>'search'),
@@ -71,6 +75,7 @@ class User extends CActiveRecord
 			'id' => 'ID',
 			'username' => 'User Name',
 			'password' => 'Password',
+			'password_repeat' => 'Password again',
 			'email' => 'Email',
 			'status' => 'Status',
 			'join_date' => 'Join Date',
@@ -110,4 +115,8 @@ class User extends CActiveRecord
         return md5($password);
     }
 
+    public function afterValidate(){
+    	parent::afterValidate();
+    	$this->password = $this->hashPassword($this->password);
+    }
 }

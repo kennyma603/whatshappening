@@ -70,3 +70,202 @@ Stack trace:
 REQUEST_URI=/news/index.php?r=site/login
 HTTP_REFERER=http://localhost/news/index.php?r=site/login
 ---
+2012/05/21 13:29:13 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\yii\framework\web\auth\CAccessControlFilter.php:157
+Stack trace:
+#0 D:\xampp\yii\framework\web\auth\CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\yii\framework\web\CWebApplication.php(276): CController->run('admin')
+#8 D:\xampp\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('user/admin')
+#9 D:\xampp\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\news\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/news/index.php/user/admin
+HTTP_REFERER=http://localhost/news/index.php/site/login
+---
+2012/05/21 13:29:50 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\yii\framework\web\auth\CAccessControlFilter.php:157
+Stack trace:
+#0 D:\xampp\yii\framework\web\auth\CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\yii\framework\web\CWebApplication.php(276): CController->run('admin')
+#8 D:\xampp\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('user/admin')
+#9 D:\xampp\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\news\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/news/index.php/user/admin
+HTTP_REFERER=http://localhost/news/index.php/user
+---
+2012/05/21 13:29:54 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\yii\framework\web\auth\CAccessControlFilter.php:157
+Stack trace:
+#0 D:\xampp\yii\framework\web\auth\CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\yii\framework\web\CWebApplication.php(276): CController->run('admin')
+#8 D:\xampp\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('user/admin')
+#9 D:\xampp\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\news\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/news/index.php/user/admin
+HTTP_REFERER=http://localhost/news/index.php/user
+---
+2012/05/21 14:29:52 [error] [exception.CException] exception 'CException' with message 'Property "User.user_name" is not defined.' in D:\xampp\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\xampp\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('user_name')
+#1 D:\xampp\yii\framework\validators\CStringValidator.php(80): CActiveRecord->__get('user_name')
+#2 D:\xampp\yii\framework\validators\CValidator.php(197): CStringValidator->validateAttribute(Object(User), 'user_name')
+#3 D:\xampp\yii\framework\base\CModel.php(158): CValidator->validate(Object(User), NULL)
+#4 D:\xampp\yii\framework\db\ar\CActiveRecord.php(786): CModel->validate(NULL)
+#5 D:\xampp\htdocs\news\protected\controllers\UserController.php(72): CActiveRecord->save()
+#6 D:\xampp\yii\framework\web\actions\CInlineAction.php(50): UserController->actionCreate()
+#7 D:\xampp\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 D:\xampp\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 D:\xampp\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 D:\xampp\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 D:\xampp\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 D:\xampp\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 D:\xampp\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 D:\xampp\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 D:\xampp\yii\framework\web\CWebApplication.php(276): CController->run('create')
+#16 D:\xampp\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('user/create')
+#17 D:\xampp\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 D:\xampp\htdocs\news\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/news/index.php/user/create
+HTTP_REFERER=http://localhost/news/index.php/user/create
+---
+2012/05/21 14:41:56 [warning] [application] Failed to set unsafe attribute "status" of "User".
+in D:\xampp\htdocs\news\protected\controllers\UserController.php (71)
+in D:\xampp\htdocs\news\index.php (13)
+2012/05/21 14:41:56 [warning] [application] Failed to set unsafe attribute "join_date" of "User".
+in D:\xampp\htdocs\news\protected\controllers\UserController.php (71)
+in D:\xampp\htdocs\news\index.php (13)
+2012/05/21 14:42:00 [warning] [application] Failed to set unsafe attribute "status" of "User".
+in D:\xampp\htdocs\news\protected\controllers\UserController.php (71)
+in D:\xampp\htdocs\news\index.php (13)
+2012/05/21 14:42:00 [warning] [application] Failed to set unsafe attribute "join_date" of "User".
+in D:\xampp\htdocs\news\protected\controllers\UserController.php (71)
+in D:\xampp\htdocs\news\index.php (13)
+2012/05/21 14:43:00 [warning] [application] Failed to set unsafe attribute "status" of "User".
+in D:\xampp\htdocs\news\protected\controllers\UserController.php (71)
+in D:\xampp\htdocs\news\index.php (13)
+2012/05/21 14:43:00 [warning] [application] Failed to set unsafe attribute "join_date" of "User".
+in D:\xampp\htdocs\news\protected\controllers\UserController.php (71)
+in D:\xampp\htdocs\news\index.php (13)
+2012/05/21 14:45:01 [error] [exception.CException] exception 'CException' with message 'Property "User.password2" is not defined.' in D:\xampp\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\xampp\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('password2')
+#1 D:\xampp\yii\framework\web\helpers\CHtml.php(2044): CActiveRecord->__get('password2')
+#2 D:\xampp\yii\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(User), 'password2')
+#3 D:\xampp\yii\framework\web\helpers\CHtml.php(1238): CHtml::activeInputField('password', Object(User), 'password2', Array)
+#4 D:\xampp\yii\framework\web\widgets\CActiveForm.php(605): CHtml::activePasswordField(Object(User), 'password2', Array)
+#5 D:\xampp\htdocs\news\protected\views\user\_form.php(26): CActiveForm->passwordField(Object(User), 'password2', Array)
+#6 D:\xampp\yii\framework\web\CBaseController.php(127): require('D:\xampp\htdocs...')
+#7 D:\xampp\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\xampp\htdocs...', Array, true)
+#8 D:\xampp\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\xampp\htdocs...', Array, true)
+#9 D:\xampp\htdocs\news\protected\views\user\create.php(15): CController->renderPartial('_form', Array)
+#10 D:\xampp\yii\framework\web\CBaseController.php(127): require('D:\xampp\htdocs...')
+#11 D:\xampp\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\xampp\htdocs...', Array, true)
+#12 D:\xampp\yii\framework\web\CController.php(870): CBaseController->renderFile('D:\xampp\htdocs...', Array, true)
+#13 D:\xampp\yii\framework\web\CController.php(783): CController->renderPartial('create', Array, true)
+#14 D:\xampp\htdocs\news\protected\controllers\UserController.php(78): CController->render('create', Array)
+#15 D:\xampp\yii\framework\web\actions\CInlineAction.php(50): UserController->actionCreate()
+#16 D:\xampp\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#17 D:\xampp\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#18 D:\xampp\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#19 D:\xampp\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#20 D:\xampp\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#21 D:\xampp\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#22 D:\xampp\yii\framework\web\CController.php(292): CFilterChain->run()
+#23 D:\xampp\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 D:\xampp\yii\framework\web\CWebApplication.php(276): CController->run('create')
+#25 D:\xampp\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('user/create')
+#26 D:\xampp\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#27 D:\xampp\htdocs\news\index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/news/index.php/user/create
+HTTP_REFERER=http://localhost/news/index.php/user/create
+---
+2012/05/21 14:50:17 [warning] [application] Failed to set unsafe attribute "password_repeat" of "User".
+in D:\xampp\htdocs\news\protected\controllers\UserController.php (71)
+in D:\xampp\htdocs\news\index.php (13)
+2012/05/21 14:56:31 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\yii\framework\web\auth\CAccessControlFilter.php:157
+Stack trace:
+#0 D:\xampp\yii\framework\web\auth\CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\yii\framework\web\CWebApplication.php(276): CController->run('admin')
+#8 D:\xampp\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('user/admin')
+#9 D:\xampp\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\news\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/news/index.php/user/admin
+HTTP_REFERER=http://localhost/news/index.php/user/index
+---
+2012/05/21 14:57:08 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\yii\framework\web\auth\CAccessControlFilter.php:157
+Stack trace:
+#0 D:\xampp\yii\framework\web\auth\CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\yii\framework\web\CWebApplication.php(276): CController->run('admin')
+#8 D:\xampp\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('user/admin')
+#9 D:\xampp\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\news\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/news/index.php/user/admin
+HTTP_REFERER=http://localhost/news/index.php/user/2
+---
+2012/05/21 14:57:11 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\yii\framework\web\auth\CAccessControlFilter.php:157
+Stack trace:
+#0 D:\xampp\yii\framework\web\auth\CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\yii\framework\web\CWebApplication.php(276): CController->run('delete')
+#8 D:\xampp\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('user/delete')
+#9 D:\xampp\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\news\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/news/index.php/user/delete/2
+HTTP_REFERER=http://localhost/news/index.php/user/2
+---
+2012/05/21 17:48:49 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in D:\xampp\yii\framework\web\auth\CAccessControlFilter.php:157
+Stack trace:
+#0 D:\xampp\yii\framework\web\auth\CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 D:\xampp\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 D:\xampp\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 D:\xampp\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 D:\xampp\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 D:\xampp\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 D:\xampp\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 D:\xampp\yii\framework\web\CWebApplication.php(276): CController->run('admin')
+#8 D:\xampp\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('user/admin')
+#9 D:\xampp\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 D:\xampp\htdocs\news\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/news/index.php/user/admin
+HTTP_REFERER=http://localhost/news/index.php/user/index
+---
