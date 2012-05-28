@@ -8,7 +8,7 @@
  * @property string $user_name
  * @property string $password
  * @property string $email
- * @property integer $status
+ * @property string $role
  * @property string $join_date
  */
 class User extends CActiveRecord
@@ -42,8 +42,9 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, email', 'required'),
-			array('username, email', 'length', 'max'=>100),
+			array('password', 'required'),
+			array('username, email', 'required', 'on'=>'register, user-update'),
+			array('username, email', 'length', 'max'=>100, 'on'=>'register, user-update'),
 			array('email', 'email','checkMX'=>true),
 			array('username, email', 'unique'),
 			array('password', 'length', 'max'=>255),
@@ -51,7 +52,7 @@ class User extends CActiveRecord
 			array('password_repeat', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, username, password, email, status, join_date', 'safe', 'on'=>'search'),
+			array('id, username, password, email, role, join_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -77,7 +78,7 @@ class User extends CActiveRecord
 			'password' => 'Password',
 			'password_repeat' => 'Password again',
 			'email' => 'Email',
-			'status' => 'Status',
+			'role' => 'Role',
 			'join_date' => 'Join Date',
 		);
 	}
@@ -93,11 +94,11 @@ class User extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->Id);
+		$criteria->compare('id',$this->id);
 		$criteria->compare('username',$this->username,true);
 		$criteria->compare('password',$this->password,true);
 		$criteria->compare('email',$this->email,true);
-		$criteria->compare('status',$this->status);
+		$criteria->compare('role',$this->role);
 		$criteria->compare('join_date',$this->join_date,true);
 
 		return new CActiveDataProvider($this, array(
@@ -115,8 +116,10 @@ class User extends CActiveRecord
         return md5($password);
     }
 
-    public function afterValidate(){
-    	parent::afterValidate();
+    public function beforeSave(){
     	$this->password = $this->hashPassword($this->password);
+    	return parent::beforeSave();
+    	
     }
+
 }

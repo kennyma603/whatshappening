@@ -15,4 +15,9 @@ $this->menu=array(
 
 <h1>Update User <?php echo $model->id; ?></h1>
 
-<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php 
+	if(Yii::app()->user->checkAccess('admin'))
+		echo $this->renderPartial('_form-update-admin', array('model'=>$model)); 
+	else
+		echo $this->renderPartial('_form-update-user', array('model'=>$model)); 
+?>

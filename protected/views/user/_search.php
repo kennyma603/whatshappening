@@ -21,8 +21,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
+		<?php echo $form->label($model,'role'); ?>
+		<?php echo $form->textField($model,'role'); ?>
 	</div>
 
 	<div class="row">

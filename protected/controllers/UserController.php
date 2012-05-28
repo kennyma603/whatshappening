@@ -27,16 +27,16 @@ class UserController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
+				'actions'=>array('index','view','create'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
-				'users'=>array('*'),
+				'actions'=>array('update'),
+				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
+				'roles'=>array('admin'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -62,6 +62,7 @@ class UserController extends Controller
 	public function actionCreate()
 	{
 		$model=new User;
+		$model->setScenario('register');
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
@@ -86,20 +87,30 @@ class UserController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
+		$model->setScenario('user-update');//set default scenario
+
+		if(Yii::app()->user->checkAccess('admin')) //if current user is admin, change scenario
+			$model->setScenario('admin-update');
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['User']))
-		{
-			$model->attributes=$_POST['User'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
+		if(Yii::app()->user->checkAccess('user', array('ownerID'=>$model->id))){
+			if(isset($_POST['User']))
+			{
+				$model->attributes=$_POST['User'];
+				if($model->save())
+					$this->redirect(array('view','id'=>$model->id));
+			}
 
-		$this->render('update',array(
-			'model'=>$model,
-		));
+			$model->password = null;
+
+			$this->render('update',array(
+				'model'=>$model,
+			));
+		}
+		else
+			throw new CHttpException(403,'Invalid request. You cannot update other user\'s profile.');
 	}
 
 	/**

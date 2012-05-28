@@ -22,7 +22,7 @@ $this->menu=array(
 		'username',
 		'password',
 		'email',
-		'status',
+		'role',
 		'join_date',
 	),
 )); ?>
